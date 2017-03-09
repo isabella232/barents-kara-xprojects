@@ -1,0 +1,21 @@
+/* Filter-list */
+
+.filter-list__item{
+	position: relative;
+	padding: 16px 20px;
+	border-bottom: 1px solid #efefef;
+}
+
+.filter-list__name{
+	@include heading-level-2();
+}
+
+.filter-list__col{
+    .mdl-checkbox{
+      margin-bottom: 8px;
+    }
+}
+
+.filter-list__field{
+	margin-top: 16px;
+}

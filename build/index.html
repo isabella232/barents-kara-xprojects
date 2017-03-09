@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Нефтегазовые и горнорудные проекты баренцевоморского региона и обской губы Карского моря</title>
+    <link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
+    <div class="map-container">
+        <div id="map" class="map"></div>
+        <div id="legend" class="legend">
+            <ul class="legend-list list-unstyled">
+                <li class="legend-list__item">
+                    <div class="legend-list__icon legend-list__icon--oilgas legend-list__icon--poly"></div>
+                    <div class="legend-list__text">Территории нефтегазовых проектов</div>
+                </li>
+                <li class="legend-list__item">
+                    <div class="legend-list__icon legend-list__icon--oilgas legend-list__icon--point"></div>
+                    <div class="legend-list__text">Объекты нефтегазовых проектов</div>
+                </li>
+                <li class="legend-list__item">
+                    <div class="legend-list__icon legend-list__icon--mining legend-list__icon--poly"></div>
+                    <div class="legend-list__text">Территории горнорудных проектов</div>
+                </li>
+                <li class="legend-list__item">
+                    <div class="legend-list__icon legend-list__icon--mining legend-list__icon--point"></div>
+                    <div class="legend-list__text">Объекты горнорудных проектов</div>
+                </li>
+            </ul>    
+        </div>
+    </div>
+    <a href="http://nextgis.ru" id="author-logo" class="author-logo" target="_blank"><img src="img/nextgis.png" alt="NextGIS"></a>
+
+    <!-- Handlebars templates -->
+    <script id="info-panel-template" type="text/x-handlebars-template">
+        {{#if title}}<div class="info-panel__title">{{title}}</div>{{/if}}
+        {{#if location}}<div class="info-panel__location">{{location}}</div>{{/if}}
+        {{#if status}}<div class="info-panel__status">{{status}}</div>{{/if}}            
+        {{#each properties}}
+            <div class="info-panel__item">
+                <div class="info-panel__item-title">{{@key}}</div>
+                {{{this}}}
+            </div>
+        {{/each}}
+    </script>
+
+    <script>
+        var mapConfig = {
+            "nextgiscomUrl": "http://barents-kara-xprojects.nextgis.com",
+            "center": [69.08, 70],
+            "zoom": 5,
+            "basemap":{
+                "url": "http://korona.geog.uni-heidelberg.de/tiles/roads/x={x}&y={y}&z={z}",
+                "attribution": "&copy; <a href=http://osm.org/copyright'>OpenStreetMap</a> contributors"
+            },
+            "minOffsetRight": 460,
+            "layers": [
+                {
+                    "name": "oilgas_poly",
+                    "id": 26,
+                    "style": {
+                        weight: 0,
+                        color: '#7b4ea9',
+                        fillOpacity: .75
+                    },
+                    "hoverStyle": {
+                        weight: 2,
+                        color: '#660bc3',
+                        fillOpacity: .4
+                    },
+                    "centroidStyle": {
+                        radius: 6, 
+                        fillOpacity: 1,
+                        weight: 4,
+                        color: "#ffffff",
+                        fillColor: "#660bc3",
+                        opacity: .6,
+                        fillRule: "nonzero"
+                    }
+                },
+                {
+                    "name": "mining_poly",
+                    "id": 28,
+                    "style": {
+                        weight: 0,
+                        color: '#f6d726',
+                        fillOpacity: .75
+                    },
+                    "hoverStyle": {
+                        weight: 2,
+                        color: '#f9b105',
+                        fillOpacity: .4
+                    },
+                    "centroidStyle": {
+                        radius: 6, 
+                        fillOpacity: 1,
+                        weight: 4,
+                        color: "#ffffff",
+                        fillColor: "#f9b105",
+                        opacity: .6,
+                        fillRule: "nonzero"
+                    }
+                }
+            ]
+        };
+    </script>
+    <script src="js/main.js"></script>
+</body>
+</html>
