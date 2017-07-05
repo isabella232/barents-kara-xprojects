@@ -40,13 +40,14 @@ define(["jquery", "leaflet", "handlebars"], function($, L, Handlebars){
             $.each(props, function(key, value) {
                 var apiField = $.grep(fieldNames, function(n, i){ return n.keyname == key; })[0];
 
-                if (key != "name" && key!="location" && key!="startdate" && value){
+                if (key != "name" && key!="location" && key!="startdate" && key!="OGC_FID" && key!="link" && value){
                     propsAliased[apiField.display_name] = value;
                 }
             });
 
             html = this.template({
                 title: props.name,
+                link: props.link,
                 location: props.location,
                 status: props.startdate,
                 properties: propsAliased

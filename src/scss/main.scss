@@ -110,6 +110,13 @@ body{
   font-family: $font-family-sans-serif;
   color: $text-color;
 }
+a{
+  &:hover,
+  &:focus,
+  &:active{
+    outline:0;
+  }
+}
 
 // Components
 // @import "../blocks/forms/forms";

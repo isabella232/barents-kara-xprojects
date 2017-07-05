@@ -33,7 +33,15 @@
 
     <!-- Handlebars templates -->
     <script id="info-panel-template" type="text/x-handlebars-template">
-        {{#if title}}<div class="info-panel__title">{{title}}</div>{{/if}}
+        {{#if title}}
+            <div class="info-panel__title">
+            {{#if link}}
+                <a href="{{link}}" class="info-panel__link" target="_blank">{{title}}</a>
+            {{else}}
+                {{title}}
+            {{/if}}
+            </div>
+        {{/if}}
         {{#if location}}<div class="info-panel__location">{{location}}</div>{{/if}}
         {{#if status}}<div class="info-panel__status">{{status}}</div>{{/if}}            
         {{#each properties}}
@@ -57,7 +65,7 @@
             "layers": [
                 {
                     "name": "oilgas_poly",
-                    "id": 26,
+                    "id": 157,
                     "style": {
                         weight: 0,
                         color: '#7b4ea9',
@@ -80,7 +88,7 @@
                 },
                 {
                     "name": "mining_poly",
-                    "id": 28,
+                    "id": 159,
                     "style": {
                         weight: 0,
                         color: '#f6d726',
