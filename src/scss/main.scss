@@ -110,13 +110,6 @@ body{
   font-family: $font-family-sans-serif;
   color: $text-color;
 }
-a{
-  &:hover,
-  &:focus,
-  &:active{
-    outline:0;
-  }
-}
 
 // Components
 // @import "../blocks/forms/forms";
@@ -148,3 +141,20 @@ a{
 //     transform: translate3d(0, 0, 0);
 //   }
 // }
+
+a,
+.leaflet-container a{
+  color:$brand-primary;
+
+  &:hover,
+  &:focus,
+  &:active{
+    outline:0;
+  }
+
+  &:hover{
+    color: #2196f3;
+    text-decoration: none;
+    border-color: transparent;
+  }
+}
