@@ -54,7 +54,8 @@ define(["jquery", "leaflet", "handlebars"], function($, L, Handlebars){
             });
             $(this.container).find(".info-panel__inner").html(html);
                 
-            this.checkOverflowing();
+            this.checkOverflowing();                   
+            this.inner.scrollTop = 0;
 
             $(this.container).addClass("active");
         },
