@@ -31,6 +31,7 @@ define(["jquery", "leaflet", "handlebars"], function($, L, Handlebars){
                 that.checkOverflowing();
             })
 
+            L.DomEvent.disableScrollPropagation(that.container);
             return that.container;
         },
         show: function(props, fieldNames){
@@ -68,7 +69,8 @@ define(["jquery", "leaflet", "handlebars"], function($, L, Handlebars){
             setTimeout(function(){
                 if (that.inner.offsetHeight < that.inner.scrollHeight ||
                     that.inner.offsetWidth < that.inner.scrollWidth) {
-                    $(that.container).addClass("overflowed");
+                    var scrollWidth = that.inner.offsetWidth - that.inner.clientWidth;
+                    that.closer.style.right = scrollWidth + 5 + "px";
                 } else {
                     $(that.container).removeClass("overflowed");
                 }           
