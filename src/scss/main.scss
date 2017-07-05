@@ -112,35 +112,11 @@ body{
 }
 
 // Components
-// @import "../blocks/forms/forms";
-// @import "../blocks/checkbox/checkbox";
 @import "../blocks/map/map";
 @import "../blocks/leaflet/leaflet";
 @import "../blocks/info-panel/info-panel";
 @import "../blocks/author-logo/author-logo";
-// @import "../blocks/sidebar/sidebar";
-// @import "../blocks/layers-panel/layers-panel";
-// @import "../blocks/layers-group/layers-group";
-// @import "../blocks/layers-list/layers-list";
-// @import "../blocks/search-panel/search-panel";
-// @import "../blocks/filter-panel/filter-panel";
-// @import "../blocks/filter-list/filter-list";
-// @import "../blocks/expanded-control/expanded-control";
 @import "../blocks/legend/legend";
-// @import "../blocks/composite-autocomplete/composite-autocomplete";
-// @import "../blocks/toolbar/toolbar";
-
-// Animation
-// @keyframes slideInDown {
-//   from {
-//     transform: translate3d(0, -20px, 0);
-//     visibility: visible;
-//   }
-
-//   to {
-//     transform: translate3d(0, 0, 0);
-//   }
-// }
 
 a,
 .leaflet-container a{
