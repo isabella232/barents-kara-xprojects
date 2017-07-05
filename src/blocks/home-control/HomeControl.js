@@ -25,6 +25,13 @@ define(["leaflet"], function(L){
         }
     });
 
-    return L.Control.InfoPanel;
+    L.Map.addInitHook(function () {
+        if (this.options.homeControl) {
+            this.homeControl =  new L.Control.HomeControl(this.options.homeControlOptions);
+            this.addControl(this.homeControl);
+        }
+    });
+
+    return L.Control.HomeControl;
 });
 

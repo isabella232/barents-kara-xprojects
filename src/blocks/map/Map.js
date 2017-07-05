@@ -4,14 +4,18 @@ define(["jquery",
         "info-panel/InfoPanel", 
         "legend/Legend",
         "author-logo/AuthorLogo",
-        "home-control/HomeControl"
+        "home-control/HomeControl",
+        "fullscreen-control/FullscreenControl"
         ], 
     function(
         $, 
         L, 
         LProj, 
         InfoPanel, 
-        Legend){ 
+        Legend,
+        AuthorLogo,
+        HomeControl,
+        fullscreen){ 
     function Map(options){
         this.mapConfig = options.mapConfig;
 
@@ -20,7 +24,16 @@ define(["jquery",
 
     Map.prototype.renderMap = function(){
         var that = this;
-        that.map = L.map('map').setView(that.mapConfig.center, that.mapConfig.zoom);
+        that.map = new L.Map('map', {
+          homeControl: true,
+          homeControlOptions: {
+            map: this
+          },
+          fullscreenControl: true,
+          fullscreenControlOptions: {
+            position: 'topleft'
+          }
+        }).setView(that.mapConfig.center, that.mapConfig.zoom);
 
         // set Basemap
         L.tileLayer(that.mapConfig.basemap.url, {
@@ -28,7 +41,6 @@ define(["jquery",
         }).addTo( that.map );
 
         // add custom tools
-        that.homeControl = new L.Control.HomeControl({map: that}).addTo(that.map);
         that.authorLogo = new L.Control.AuthorLogo({elem: document.getElementById("author-logo")}).addTo(that.map);
 
         // add Legend
